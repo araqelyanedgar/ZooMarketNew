@@ -16,11 +16,28 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         let viewController = UIViewController()
         viewController.view.backgroundColor = .systemBlue
+
+        
         
         viewControllers = [
             homeCoordinator.navigationController,
             favouritesCoordinator.navigationController,
             settingsCoordinator.navigationController
         ]
+        
+        setAppearance()
+    }
+    
+    func setAppearance() {
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = .systemYellow
+        
+        tabBar.standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        } else {
+            // Fallback on earlier versions
+        }
+        tabBar.tintColor = .black
     }
 }

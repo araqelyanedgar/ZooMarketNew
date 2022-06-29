@@ -16,7 +16,7 @@ class SettingsCoordinator {
         navigationController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), tag: 2)
         
         let viewController = SettingsViewController()
-        viewController.coordintor = self
+        viewController.coordinator = self
         navigationController.viewControllers = [viewController]
     }
 }
