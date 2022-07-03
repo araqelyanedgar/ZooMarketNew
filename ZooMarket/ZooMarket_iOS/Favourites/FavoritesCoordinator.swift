@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavouritesCoordinator {
+class FavoritesCoordinator {
     let navigationController: UINavigationController
     
     init() {
@@ -15,7 +15,7 @@ class FavouritesCoordinator {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(systemName: "heart"), tag: 1)
         
-        let viewController = FavouritesViewController()
+        let viewController = FavoritesViewController()
         viewController.coordinator = self
         navigationController.viewControllers = [viewController]
     }

@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ItemDetailVeiwController: UIViewController {
-    var itemRepository = ItemsRepository.shared
+class ItemDetailViewController: UIViewController {
+    var itemRepository: ItemsRepository
     
     var scrollView: UIScrollView!
     var contentView: UIView!
@@ -23,7 +23,8 @@ class ItemDetailVeiwController: UIViewController {
     
     var brand: Brand!
     
-    init(brand: Brand) {
+    init(brand: Brand, repository: ItemsRepository) {
+        self.itemRepository = repository
         super.init(nibName: nil, bundle: nil)
         self.brand = brand
     }
@@ -70,7 +71,7 @@ class ItemDetailVeiwController: UIViewController {
     }
 }
 
-extension ItemDetailVeiwController {
+extension ItemDetailViewController {
     func initScrollView() {
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +88,7 @@ extension ItemDetailVeiwController {
         brandImage = UIImageView()
         brandImage.image = UIImage(named: brand.image)
         brandImage.translatesAutoresizingMaskIntoConstraints = false
+        brandImage.isUserInteractionEnabled = true
     }
     
     func initLikeButton() {
@@ -99,6 +101,7 @@ extension ItemDetailVeiwController {
         }
         likeButton.tintColor = .white
         likeButton.translatesAutoresizingMaskIntoConstraints = false
+        likeButton.clipsToBounds = true
     }
     
     func initBrandLabel() {
@@ -139,7 +142,7 @@ extension ItemDetailVeiwController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(brandImage)
-        contentView.addSubview(likeButton)
+        brandImage.addSubview(likeButton)
         contentView.addSubview(brandLabel)
         view.addSubview(checkOutButton)
         view.addSubview(stepper)

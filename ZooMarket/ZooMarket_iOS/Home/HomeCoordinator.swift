@@ -22,7 +22,7 @@ class HomeCoordinator {
     }
     
     func showItemDetailScene(brand: Brand) {
-        let viewController = ItemDetailVeiwController(brand: brand)
+        let viewController = ItemDetailFactory.createItemDetailViewController(brand: brand)
         navigationController.pushViewController(
             viewController, animated: true)
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
     let homeCoordinator = HomeCoordinator()
-    let favouritesCoordinator = FavouritesCoordinator()
+    let favouritesCoordinator = FavoritesCoordinator()
     let settingsCoordinator = SettingsCoordinator()
     
     override func viewDidLoad() {
