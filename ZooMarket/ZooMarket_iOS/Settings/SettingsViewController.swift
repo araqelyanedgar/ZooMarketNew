@@ -8,11 +8,11 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    var coordintor: SettingsCoordinator?
+    var coordinator: SettingsCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
         title = "Settings"
     }
 }

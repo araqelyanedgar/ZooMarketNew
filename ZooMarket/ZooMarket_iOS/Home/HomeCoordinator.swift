@@ -12,14 +12,18 @@ class HomeCoordinator {
     
     init() {
         self.navigationController = UINavigationController()
-        navigationController.navigationBar.prefersLargeTitles = true
         
-        let homeViewController = HomeViewController()
+        let homeViewController = HomeFactory.createHomeViewController(coordinator: self)
         homeViewController.coordinator = self
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
         
+        navigationController.navigationBar.prefersLargeTitles = true
         navigationController.viewControllers = [homeViewController]
     }
+    
+    func showItemDetailScene(brand: Brand) {
+        let viewController = ItemDetailFactory.createItemDetailViewController(brand: brand)
+        navigationController.pushViewController(
+            viewController, animated: true)
+    }
 }
-
-
